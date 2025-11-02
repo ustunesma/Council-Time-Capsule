@@ -67,45 +67,43 @@ def add_message(messages):
     print()
     save_capsule(messages)
 
-    def save_capsule(messages):
-        with open("capsule.txt", "w") as file:
-            for msg in messages:
-                file.write(msg + "\n")
+def save_capsule(messages):
+    with open("capsule.txt", "w") as file:
+        for msg in messages:
+            file.write(msg + "\n")
     
-    def load_capsule():
-        messages = []
-        try:
-            with open("capsule.txt") as file:
-                for line in file:
-                    line = line.strip()
-                    if line:
-                        messages.append(line)
-        except FileNotFoundError:
+def load_capsule():
+    messages = []
+    try:
+        with open("capsule.txt") as file:
+            for line in file:
+                line = line.strip()
+                if line:
+                    messages.append(line)
+    except FileNotFoundError:
             print("No capsule found. Starting fresh!")
             print()
-        return messages
+    return messages
     
-    def is_unlocked(date_part):
-        try:
+def is_unlocked(date_part):
+    try:
 
             unlock_dt = datetime.datetime.strptime(date_part, "%Y-%m-%d %H:%M")
-        except ValueError:
-            try:
+    except ValueError:
+        try:
                 
                 unlock_dt = datetime.datetime.strptime(date_part.strip(), "%Y-%m-%d-%H:%M")
-            except ValueError:
+        except ValueError:
                 return False
-            return datetime.datetime.now() >= unlock_dt
+    return datetime.datetime.now() >= unlock_dt
         
-        def view_unlocked_messages(messages):
-            unlocked = []
-            for msg in messages:
-                parts = msg.split("|", 2)
-                if len(parts) >= 2:
-                    date_part = parts[0]
-                    text = parts[1]
-                    image_file = parts[2] if len(parts) > 2 else ""
+def view_unlocked(messages):
+    unlocked = []
+    for msg in messages:
+        parts = msg.split("|", 2)
+        if len(parts) >= 2:
+            date_part = parts[0]
+            text = parts[1]
+            image_file = parts[2] if len(parts) > 2 else ""
 
 
-
-            
