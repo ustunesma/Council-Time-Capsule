@@ -1,7 +1,6 @@
 # Council Time Capsule - COE203 Python Project1
 
-> **Personal Automation Tool**
-> **Team:** [Esma ÜStün], [Orkun Bayraktar], [Onur Tayşun], [Taha Örnek], [Kava Başboğa]
+> **Team:** [Esma Üstün], [Orkun Bayraktar], [Onur Tayşun], [Taha Örnek], [Kava Başboğa]
 
 ---
 ## Project Overview
