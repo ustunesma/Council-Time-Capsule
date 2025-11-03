@@ -14,7 +14,7 @@ def add_message(messages):
 
         if attach_image in ['yes', 'y']:
             image_path = input("Enter the path to the image file: ").strip()
-            if os.path.exist(image_path):
+            if os.path.exists(image_path):
                 try:
                     img = Image.open(image_path)
                     img.verify()
@@ -137,5 +137,29 @@ def main():
         print("3. Exit")
         print("="*30)
 
-        choice = input("Choose: ")          
+        choice = input("Choose: ")
+        if choice == "1":
+            print()
+            print(f"Hello, {name_surname}! Please write a message to future you:")
+            print()
+            add_message(messages)
+
+        elif choice == "2":
+            print()
+            print(f"Hello, {name_surname}! Here are your unlocked messages:")
+            print()
+            view_unlocked(messages)
+        elif choice == "3":
+            print()
+            print("Capsule sealed. See you in the future!")
+            print()
+            break
+        else:
+            print("Invalid choice. Please try again.")
+            print()
+
+if __name__ == "__main__":
+    main()
+            
+                  
 
